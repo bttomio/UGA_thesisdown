@@ -1,0 +1,776 @@
+---
+#########################################
+# options for knitting a single chapter #
+#########################################
+output:
+  bookdown::pdf_document2:
+    template: templates/brief_template.tex
+    citation_package: biblatex
+  bookdown::html_document2: default
+  bookdown::word_document2: default
+documentclass: book
+bibliography: [bibliography/references.bib, bibliography/additional-references.bib]
+---
+
+```{block type='savequote', quote_author='(ref:riseofcarry-quote)', include=knitr::is_latex_output()}
+In one of the various seemingly contradictory aspects of the carry regime, central bankers seem to have enormous power—their extraordinary power to create high-powered money, set short-term interest rates, and strongly influence financial markets with everything they say—but ultimately they themselves have little latitude to act. Central banks become merely the agents of carry. Their seeming immense power is, in reality, mostly illusory.
+```
+(ref:riseofcarry-quote) --- @lee2020 [\text{p.} 7]
+
+<!--^[Defined by @lee2020 [\text{p.} 86] as "a structure of financial market pricing and a pattern of market behavior that, over time, rewards those implementing carry trades with outsized returns."]-->
+
+# The political economy of carry trade: The real economy got carried away in Switzerland and Brazil^[The idea of the political economy of carry trade was given by Guillaume Vallet. I profited from comments and suggestions made by Cédric Tille on an earlier version of this paper. I am grateful for both and remain the sole responsible for the views expressed herein.] {#five}
+\minitoc <!-- this will include a mini table of contents-->
+
+## Introduction {#fiveone}
+
+\noindent Carry trade or currency carry trade is a speculative financial investment. According to @frankel2008 [\text{p.} 40], it is an investment strategy of "going short (betting the foreign exchange value will fall) in a low-interest rate currency" as the Swiss franc (CHF), "while simultaneously going long (betting the foreign exchange value will rise) in a high-interest rate currency" like the Brazilian real (BRL). Each currency in the carry trade will be impacted differently by increases in these bets. Notably, the exchange rate is likely to be affected [@klitgaard2004; @fong2013]. By creating erratic movements in the exchange rate, carry trade impacts the real economy of both countries.
+
+This article aims to fill a gap in the carry trade literature by empirically investigating the real economy impacts of the carry trade activity in Switzerland and Brazil. This is done using a Bayesian global vector autoregressive (BGVAR) model, which proxies the global economy. How does carry trade impact both Swiss and Brazilian economies? This addressed question is a novelty in the usual literature on this topic, which focuses on maximizing portfolio returns. The central hypothesis is that there are pervasive effects of this speculative activity.
+
+Theoretically, the carry trade activity should not even exist. According to the uncovered interest rate parity (UIP) hypothesis, exchange rates would neutralize the interest rate differentials between two currencies. In this sense, the UIP states that the carry trade profits would be equal to zero. Nevertheless, as demonstrated several times, the UIP hypothesis is violated in the current international monetary system [e.g., see the seminal paper by @fama1984]. Therefore, carry trade activities are not financially nor economically neutral. Along with their influence on the exchange rates, they also exert a distributive impact and are related to power. Overall, it is a zero-sum game, i.e., one agent's loss is another agent's gain. Such a statement also applies to central banks: managing the impact of carry trade activities cannot occur without entailing risky decisions, which could entail losses for themselves and their economies.
+
+In addition, in order to analyze these relations of power underpinning carry trade activities, a political economy approach is carried out to understand the carry trade effects better. Indeed, funding and target currencies are not affected to the same extent. The power structure in the international monetary system may influence the way carry trade affects individual economies. Specifically, the international hierarchy of currencies confers more or less power to central banks because they could undermine their liberty to implement independent monetary policies [@cohen1998; @deconti2013; @depaula2017; @fritz2018]. Therefore, carry trade activities are related to the power associated with the international status of central banks and currencies. For example, @gaulard2012 [\text{p.} 386] says that "[t]he American monetary creation and the [Federal Reserve]’s policy of quantitative easing are indeed at the root of an increasing number of capital flows oriented towards emerging countries like Brazil." Similarly, "[e]xpansionary monetary policies in [advanced economies] exacerbated the flood of capital to [emerging market and developing economies]. Investors and speculators were able to engage in the profitable carry trade, borrowing at low interest rates in [advanced economies] and then investing in [emerging market and developing economies], which were characterized by higher interest rates during much of the global crisis." [@grabel2018, \text{p.} 199]
+
+There is a neglected and underestimated political economy of carry trade activities deserving more attention. Political economy is understood here as the academic analysis of politically and socially embedded economic activities, resting on the idea to place power relations at the core of these activities. Power is associated with both structures and interactions between actors, the latter encompassing the States and individual actors [@strange1994; @may1996]. Within the carry trade context, this implies focusing on the States, but also on central banks and on private investors of different kinds (for example, dealers/intermediaries, asset managers, leveraged funds, investment banks). International organizations are also vital in this scheme. For example, the International Monetary Fund's view on capital controls changed significantly after the 2008 global financial crisis. As pointed out by @grabel2018 [\text{p.} 213], "[t]he rebranding of controls has also been facilitated by the fact that carry trade pressures in some [advanced economies] caused central bankers to reconsider their long-held opposition to currency interventions and even to capital controls."
+
+The political economy is crucial to the investigation of carry trade activities since it identifies the different relations of power associated with international monetary transactions. This framework also challenges the dichotomies often used to delve into this topic. For instance, there is a binary rationale about developed and developing/emerging countries or about funding and investing currencies. Though relevant to some extent, such dichotomies do not reflect the complexity of carry trade activities and their relations of power. The complexity of these power relations between economic actors overlaps the current understanding of carry trade activities.
+
+There are two levels of power conflict in the political economy approach to the carry trade. First, internationally, currencies from developed countries are preferred to currencies from developing countries, as illustrated by the currency hierarchy. Second, domestically, central banks accept the risk of the carry trade activity following the pressure of actors from the financial sector. As proposed by @schoenmaker2011 [\text{p.} 57]'s financial trilemma, "financial stability, financial integration and national financial policies are incompatible." Furthermore, democracy and national sovereignty questions appear regarding central banks' handling of the carry trade.
+
+In sum, the impacts of the carry trade activities on the real economy have been overlooked. Notably, the paper contributes to a better understanding of these impacts by investigating the cases of two notorious funding and target currencies, the Swiss franc and the Brazilian real, respectively. There is evidence that the carry trade negatively impacts the real economy. Our interpretation is that carry trade crowds out real investment, along with the distortions on the exchange rate. Nevertheless, these impacts do not present a high economic magnitude, also being conditional to the periodicity of the estimated model. Additionally, a broader discussion of these impacts is possible with the political economy approach. The remainder is organized as follows. Section \@ref(fivetwo) gives a data overview and describes the econometric framework. The links between the real economy and the carry trade activities are explored with the transmission of structural shocks in section \@ref(fivethree). The main conclusions are drawn in section \@ref(fivefour).
+
+## Data overview and econometric framework {#fivetwo}
+
+This section describes the data set created for the empirical assessment of the carry trade effects on the Swiss and Brazilian real economy. Succeeding the data description, there is the demonstration of the econometric framework with a general description of the Bayesian global vector autoregressive (BGVAR) model. Next, a subsection discusses both the implemented model setup and the pre-testing procedure.
+
+### Data {#fivetwoone}
+
+The world economy is proxied by 21 countries and one regional aggregate, the euro area (see Table \@ref(tab:Table51)). This makes a total of 22 units. Additionally, the main currency pairs available on the CFTC public database are present. Most importantly, according to the @worldbank2021, these countries account for about 84% of global nominal output (GDP, current USD)^[The code for the indicator used is "NY.GDP.MKTP.CD".] averaged over the years 2014 and 2019.
+
+```{r Table51, echo = FALSE, message=FALSE, warning=FALSE}
+countrycover <- 
+  data.frame("Type" = c("\\multirow{3}{*}[0pt]{CFTC countries}", 
+                        "\\multirow{3}{*}[0pt]{Global economy}"),
+             "Countries" = c(c("Australia (AU), Brazil (BR), Canada (CA), Switzerland(CH), United Kingdom (GB), Japan (JP), Mexico (MX), New Zealand (NZ), Russia (RU), Euro area (U2)$^*$, United States (US)"), 
+                             c("China (CN), Czech Republic (CZ), Denmark (DK), Hungary (HU), India (IN), Korea, Rep. (KR), Norway (NO), Poland (PL), South Africa (ZA), Sweden (SE), Turkey (TR)")), stringsAsFactors = F)
+colnames(countrycover) <- c("CFTC countries", "Global economy")
+
+countrycover %>%
+kable("latex", caption = "Country coverage", booktabs = T, linesep = c('\\addlinespace'), position = "!ht", align = "cl", escape = F, col.names = NULL) %>%
+#  kable_styling(latex_options = "scale_down") %>%
+  column_spec(1, width = "3cm") %>%
+  column_spec(2, width = "11cm") %>%
+  footnote(
+    general = "\\\\footnotesize{$Notes$: Abbreviations follow the two-digit codes provided by IMF's database International Financial Statistics (IFS). South Africa (ZA) is excluded from the CFTC group due to lack of data.}\n",
+    general_title = "",
+    symbol = "\\\\footnotesize{Changing composition.}",
+    footnote_as_chunk = T, 
+    escape = F,
+    threeparttable = T
+  )  %>%
+  kable_styling(latex_options = "scale_down")
+```
+
+Table \@ref(tab:Table52) lists all variables included in the estimated models.
+
+(ref:abel-citation51) @miranda-agrippino2021a
+(ref:appendixdd) Table \@ref(tab:TableSD00) in Appendix \@ref(appendixd)
+
+```{r Table52, echo = FALSE, message=FALSE, warning=FALSE}
+datadescr <- data.frame(Variables = c("$GDP$", 
+                                      "$C$",
+                                      "$GFCF$",
+                                      "$X$",
+                                      "$M$",
+                                      "\\multirow{2}{*}[0pt]{$RES$}",
+                                      "$IR$",
+                                      "$ER$",
+                                      "$EQ$",
+                                      "\\multirow{2}{*}[0pt]{$NP$}",
+                                      "$VIX$",
+                                      "\\multirow{2}{*}[0pt]{$GCF$}",
+                                      "$IP$"),
+                        Text_1 = c("Gross domestic product$\\textsuperscript{*}$",
+                                   "Final consumption expenditure$\\textsuperscript{*}$",
+                                   "Gross fixed capital formation$\\textsuperscript{*}$",
+                                   "Exports of goods and services$\\textsuperscript{*}$",
+                                   "Imports of goods and services$\\textsuperscript{*}$",
+                                   "Official reserve assets and other foreign currency assets$\\textsuperscript{*}$",
+                                   "Policy interest rate",
+                                   "Nominal exchange rate$\\textsuperscript{*}$",
+                                   "Equity (share) prices$\\textsuperscript{*}$",
+                                   "Net (long minus short) positions as a share of open interest contracts (carry trade proxy)",
+                                   "CBOE Volatility Index (VIXCLS)$\\textsuperscript{*}$",
+                                   "Global common factor estimated from world-wide cross section of risky asset prices",
+                                   "Industrial production excluding construction$\\textsuperscript{*}$"),
+                        Text_2 = c("OECD", 
+                                   "OECD",
+                                   "OECD", 
+                                   "OECD",
+                                   "OECD",
+                                   "\\multirow{2}{*}[0pt]{IMF}",
+                                   "BIS",
+                                   "BIS",
+                                   "OECD",
+                                   "\\multirow{2}{*}[0pt]{CFTC}",
+                                   "FRED",
+                                   "(ref:abel-citation51)",
+                                   "OECD"),
+                        Text_3 = c("$\\bullet$", 
+                                   "",
+                                   "", 
+                                   "",
+                                   "",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "",
+                                   ""),
+                        Text_4 = c("$\\bullet$", 
+                                   "",
+                                   "", 
+                                   "",
+                                   "",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   ""),
+                        Text_5 = c("", 
+                                   "$\\bullet$",
+                                   "$\\bullet$", 
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "",
+                                   ""),
+                        Text_6 = c("", 
+                                   "$\\bullet$",
+                                   "$\\bullet$", 
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   ""),
+                        Text_7 = c("", 
+                                   "",
+                                   "", 
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "",
+                                   ""),
+                        Text_8 = c("", 
+                                   "",
+                                   "", 
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   ""),
+                        Text_9 = c("", 
+                                   "",
+                                   "", 
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "",
+                                   "$\\bullet$"),
+                        Text_10 = c("", 
+                                   "",
+                                   "", 
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "$\\bullet$",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "",
+                                   "\\multirow{2}{*}[0pt]{$\\bullet$}",
+                                   "$\\bullet$"),
+                        stringsAsFactors = F)
+colnames(datadescr) <- c("Variable", "Definition", "Source",
+                         "(1)", "(2)", "(3)", "(4)", "(5)", 
+                         "(6)", "(7)", "(8)")
+
+datadescr %>%
+mutate_all(linebreak) %>%
+kable("latex", caption = "Data description", booktabs = T, linesep = "", position = "!ht", align = "clccccccc", escape = F) %>%
+  kable_styling(latex_options = "scale_down") %>%
+  kable_styling(font_size = 8) %>%
+  column_spec(2, width = "6cm") %>%
+  column_spec(3, width = "3cm") %>%
+  footnote(
+    general = c("\\\\footnotesize{$Notes$: See (ref:appendixdd) for more details.}\n"),
+    general_title = "",
+    symbol = "\\\\footnotesize{Variables in logarithmic transform.}",
+    footnote_order = c("general", "symbol"),
+    footnote_as_chunk = T,
+    escape = F,
+    threeparttable = T) %>%
+  add_header_above(c(" " = 3, "Quarterly" = 4, "Monthly" = 4), italic = T) %>%
+  add_header_above(c(" " = 3, "Model" = 8))
+```
+
+In line with @fong2013, the carry trade proxy is restricted to the category leveraged funds in the CFTC platform. For more details, see the report Traders in Financial Futures [@commodityfuturestradingcommission2021]. Furthermore, as presented by @brunnermeier2008 [\text{p.} 321], the carry trade proxy ($NP$) is given by "the net (long minus short) futures position of noncommercial traders in the foreign currency, expressed as a fraction of total open interest of all traders":
+\begin{equation}
+\text{Net positions} = \frac{\text{Long positions} - \text{Short positions}}{\text{Open interest}}
+\end{equation}
+
+Eight data sets are structured by collecting the largest sample possible for each country (Switzerland and Brazil). As detailed in Table \@ref(tab:Table521), models (1) to (4) models are estimated with quarterly data, while models (5) to (8) use monthly data.
+
+```{r Table521, echo = FALSE, message=FALSE, warning=FALSE}
+modelsperiod <- 
+  data.frame("Country" = c("Switzerland",
+                           "Switzerland",
+                           "Brazil",
+                           "Switzerland",
+                           "Switzerland",
+                           "Brazil",
+                           "Brazil"),
+             "Period" = c("2006-Q2 to 2021-Q2",
+                          "2006-Q2 to 2019-Q1", 
+                          "2012-Q2 to 2021-Q2",
+                          "2006-06 to 2021-07",
+                          "2006-06 to 2019-04",
+                          "2014-01 to 2021-07",
+                          "2014-01 to 2019-04"),
+             "Observations" = c("61",
+                                "52",
+                                "37",
+                                "182",
+                                "155",
+                                "91",
+                                "64"),
+             "Global risk" = c("$VIX$",
+                               "$GCF$",
+                               "$VIX$",
+                               "$VIX$",
+                               "$GCF$",
+                               "$VIX$",
+                               "$GCF$"),
+             "Models" = c("(1), (3)", 
+                        "(2), (4)",
+                        "(1), (3)",
+                        "(5)",
+                        "(6)",
+                        "(5), (7)",
+                        "(6), (8)"),
+             stringsAsFactors = F)
+colnames(modelsperiod) <- c("Country", "Period", "Observations", "Global risk", "Models")
+
+modelsperiod %>%
+kable("latex", caption = "Time span for each model", booktabs = T, linesep = c('\\addlinespace'), position = "!ht", align = "c", escape = F) %>%
+#  kable_styling(full_width = T) %>%
+  footnote(
+    general = "\\\\footnotesize{$Notes$: Models (2) and (4) are not estimated for Brazil due to a lack of data, which leads to a sample of 27 observations. For Switzerland, models (7) and (8) are not estimated because there is no monthly data for industrial production.}\n",
+    general_title = "",
+    footnote_as_chunk = T, 
+    escape = F,
+    threeparttable = T
+  ) %>%
+  pack_rows("Quarterly data", 1, 3) %>%
+  pack_rows("Monthly data", 4, 7) %>%
+  collapse_rows(columns = 1:1, latex_hline = "none", valign = "middle")# %>%
+  #column_spec(c(1,3:4), width = "3cm") %>%
+  #column_spec(2, width = "4cm") %>%
+  #kable_styling(latex_options = "scale_down")
+```
+
+As detailed in Appendix \@ref(appendixd00), the last available data in each period is used for the CFTC data. Moreover, the period-end approach is used for the daily variables. The primary data issue is related to Brazil's lack of CFTC data. To achieve a continuous sample, the data sets for Brazil must start in 2012-Q2 and January 2014 for quarterly and monthly models, respectively. Furthermore, the time restriction to February 2021 is due to data availability, which avoids a possible selection bias problem. Therefore, the estimations do not fully account for the COVID crisis, considering March 2021 as the worst economic moment so far.
+
+### The Bayesian global vector autoregressive model^[This subsection follows closely the econometric framework presented in @feldkircher2016 [\text{pp.} 169-171].] {#fivetwotwo}
+
+As originally formulated by @pesaran2004 [\text{p.} 159], a global vector autoregressive model (GVAR) is "an operational framework for global macroeconomic modeling." More specifically, @feldkircher2016 [\text{p.} 169] summarize that
+
+ >[i]n principle, it comprises two layers via which the model is able to capture cross-country spillovers. In the first layer, we estimate separate time series models for each country contained in the global model. This takes cross-country differences of the economies appropriately into account since we do not impose any kind of homogeneity e.g., in a panel VAR. In the second layer, the country models are stacked to yield a global model that is able to trace the spatial propagation of a shock as well as its time dynamics.
+
+Algebraically, the first layer comprises the individual country models in an augmented VAR model (VARX$^*$) specification. For example, VARX$^*$(1,1), for $t \in 1, ..., T$ and $i \in 0, ..., N$
+is determined by
+\begin{equation}
+x_{i,t} = a_{i0} + a_{i1}t + \psi_{i1}x_{i,t-1} + \Lambda_{i0}x_{i,t}^{\ast} + \Lambda_{i0}x_{i,t-1}^{\ast} + \varepsilon_{i,t},
+(\#eq:51)
+\end{equation}
+
+\noindent where $x_{i,t}$ is a $k_i \times 1$ matrix at time $t$ in country $i$. There are also coefficients for a constant ($a_{i0}$) and a deterministic trend ($a_{i1}$). In addition, $\psi_{i1}$ gives the $k_i \times k_i^\ast$ matrix of dynamic coefficients for the lagged endogenous variables in country $1$. Weakly exogenous variables ($x_{i,t}^{\ast}$, $k_i^* \times 1$ matrix) are given by
+\begin{equation}
+x_{i,t}^{\ast} = \sum_{j\neq i}^N\omega_{ij}x_{j,t},
+(\#eq:52)
+\end{equation}
+
+\noindent where $\omega_{ij}$ denotes bilateral weights between countries $i$ and $j$. Generally, trade weights are used in the literature, but financial flows are also present. @eickmeier2015 do not find differences in their results by testing different weighting schemes. Additionally, @feldkircher2016 show that trade weights present good fitness in a sensitivity analysis under a Bayesian GVAR model. In this sense, trade weights^[See the trade weight matrix in Table \@ref(tab:TableSD0) in Appendix \@ref(appendixd0).] are employed in the estimated model presented in the following sections. With variance-covariance matrix $\Sigma_{\varepsilon,j}$, the usual vector white noise process is determined by $\varepsilon_{i,t} \sim \mathcal{N} (0,\Sigma_{\varepsilon,i})$.
+
+ >Several facts arise from \@ref(eq:51). First, note that weakly exogenous variables enter the model contemporaneously. Since bilateral weights $\omega_{ij}$ are assumed to be exogenous and fixed, weakly exogenous variables simply resemble a function of $x_t$ and are thus endogenously determined within the global system. [...] Second, note that if $\Lambda_{i0} = \Lambda_{i1} = 0$ the VARX$^*$ collapses to a standard first-order VAR model featuring a deterministic time trend. [@feldkircher2016, \text{p.} 169]
+
+In the second layer, country-specific VARX models are solved simultaneously for all domestic variables by stacking $x_{i,t}$ and $x_{i,t}^{\ast}$ to retrieve a $(k_i + k_i^*)$-dimensional vector $z_{i,t} = (x_{i,t}^{'}, x_{i,t}^{'\ast})'$. The model in Equation \@ref(eq:51) can be rewritten by gathering all contemporaneous terms on the left-hand side, as shown by
+\begin{equation}
+A_iz_{i,t} = a_{i0} + a_{i1}t + B_iz_{i,t-1} + \varepsilon_{i,t},
+(\#eq:53)
+\end{equation}
+
+\noindent with $A_i = (I_{k_i}, -\Lambda_{i0})$ and $B_i = (\psi_{i1}, \Lambda_{i1})$ being $(k_i + k_i^*)$ matrices. In terms of a global vector, $z_{i,t}$ is rewritten by using a $(k_i + k_i^*) \times k$ link matrix $W_i$, where $k = \Sigma_{i=0}^Nk_i$ is the number of endogenous variables in the global system. Given that all endogenous variables in the system are gathered in the $k$-dimensional vector $x_t = (x_{0,t}', ..., x_{N,t}')$, $z_{i,t}$ can be written as, with the use of \@ref(eq:52),
+\begin{equation}
+z_{i,t} = W_ix_t.
+(\#eq:54)
+\end{equation}
+
+Therefore, Equation \@ref(eq:51) is used to obtain the country model in terms of the global vector, as shown by
+\begin{equation}
+A_iW_ix_t = a_{i0} + a_{i1}t + B_iW_ix_{t-1} + \varepsilon_{i,t}.
+(\#eq:55)
+\end{equation}
+
+Matrices $A_iW_i$ and $B_iW_i$ for all countries stacked gives
+\begin{equation}
+Gx_t = a_{0} + a_{1}t + Hx_{t-1} + \varepsilon_{t},
+(\#eq:56)
+\end{equation}
+
+\noindent where $a_0 = (a_{00}', ..., a_{N0}')'$, $a_1 = (a_{01}', ..., a_{N1}')'$, $G = [(A_0W_0)', ..., (A_NW_N)']$, $H = [(B_0W_0)', ..., (B_NW_N)']$ and $\varepsilon_t = (\varepsilon_{0,t}', ..., \varepsilon_{N,t}')' \sim \mathcal{N} (0,\Sigma_\varepsilon)$. With $\Sigma_{\varepsilon,i}$ on the main diagonal, $\Sigma_\varepsilon$ is assumed a block-diagonal matrix. The global vector autoregressive model is derived by multiplying from the left by $G^{-1}$:
+\begin{equation}
+  \begin{aligned}
+x_t 
+& = G^{-1}a_{0} + G^{-1}a_{1}t + G^{-1}Hx_{t-1} + G^{-1}\varepsilon_{t} \\
+& = b_0 + b_1t + Fx_{t-1} + e_t,
+  \end{aligned}
+(\#eq:57)
+\end{equation}
+
+\noindent where $F$ denotes the $k \times k$ companion matrix and $e_t = \sim \mathcal{N} (0,\Sigma_e)$ considering $\Sigma_e = G^{-1} \Sigma_eG^{-1'}$. Thence, contemporaneous relationships between countries are established with matrix $G$. By being close to a simple VAR(1), Equation \@ref(eq:57) allows the implementation of standard methods (e.g., impulse response analysis). By excluding the eigenvalues of the $F$-matrix larger than 1.05 in the estimated model in the following section, shocks are restricted to "no permanent impact on the system in the very long-run." [@feldkircher2016, \text{p.} 170] This condition is possible by imposing the discard of posterior draws that exceed this limit. 
+
+The importance of the Bayesian approach to estimate the GVAR model is well explained by @feldkircher2020 [\text{p.} 3], adapted to the equations demonstrated here:
+
+ >While the GVAR modeling approach imposes parsimony by restricting the coeﬃcients related to other countries’ endogenous variables to be driven by economic weights (see Eq. \@ref(eq:52)), the remaining number of parameters in Eq. \@ref(eq:57) is still typically higher than the number of available observations. This calls for Bayesian shrinkage priors that effectively deal with this problem by shrinking the parameter space toward some stylized prior model. 
+
+### Model setup and pre-testing {#fivetwothree}
+ 
+There are three priors available to choose in the `R` package `BGVAR`^[Version 2.4.1 is used.] [@bock2021]: Stochastic Search Variable Selection prior - SSVS [@george1993; @george2008], Non-conjugate Minnesota prior - MN [@litterman1986; @koop2010], and Normal-Gamma prior - NG [@huber2019]. Following the same logic in @feldkircher2016 [\text{p.} 170], the former is chosen because it considers formally "uncertainty about variable choice into account". @feldkircher2020 [\text{Appendix A, pp.} 11-12] provide detailed information about this prior setup and the Markov chain Monte Carlo algorithm. Technically, the main features of the SSVS prior implemented on `BGVAR` is explained in-depth by the package's authors in @bock2020 [\text{pp.} 4-6]^[See also @cuaresma2016 [\text{pp.} 1377-1378] and @feldkircher2016 [\text{pp.} 170-171].].
+ 
+Also, more details on the model setup is supplied in Appendix \@ref(appendixd1), which also presents the full list of variables for each country model (for Switzerland, Tables \@ref(tab:TableSDQ1) to \@ref(tab:TableSD11); for Brazil, Tables \@ref(tab:TableSDQ5) to \@ref(tab:TableSD15)). In addition, the number of lags imposed in the estimated model equals to one (1) for all endogenous and weakly exogenous variables. Regarding the draws and burn-ins, they are equal to 20,000 and 35,000, respectively. "To ensure that the MCMC estimation has converged, a high-number of burn-ins is recommended" [@bock2020, \text{p.} 9]. Besides a constant, each country model has a deterministic trend as well. In particular, the model is estimated with stochastic volatility, as developed by @kastner2016, which is important for two main reasons:
+
+ >There are several reasons why one may want to let the residual variances change over time. First and foremost, data frequently used in macroeconometrics contain volatile periods, such as severe recessions and gradual recoveries. Hence accounting for time variation can considerably improve the fit of the model [@primiceri2005; @sims2006; @dovern2016; @huber2016]. Second, the specification implemented in this library nests the homoskedastic case. [@bock2020, \text{p.} 10]
+
+To model global risk, the setup follow the setup put forward by @georgiadis2015, @mohaddes2019 and @feldkircher2020. Figure \@ref(fig:Figure510) illustrates the model setup.
+
+```{r Figure510, out.width='0.99\\columnwidth', fig.align = "center", fig.cap = "GVAR setup with global risk modeled separately ($VIX$ or $GCF$) \\newline \\scriptsize Notes: The variable $NP$ for Brazil is not included in the models for Switzerland. Similarly, $NP$ for Russia and South Africa are also excluded from these models. The reason is the lack of data.", fig.scap="GVAR setup with global risk modeled separately ($VIX$ or $GCF$)", fig.pos="!ht", echo = FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("figure/Setup.png")
+```
+
+Before continuing to the results of the estimated models, some pre-testing is needed. The first test is @geweke1992’s convergence diagnostic, which "assesses practical convergence of the MCMC algorithm." [@bock2020, \text{p.} 11]
+
+ >In a nutshell, the diagnostic is based on a test for equality of the means of the first and last part of a Markov chain (by default we use the first 10% and the last 50%). If the samples are drawn from the stationary distribution of the chain, the two means are equal and Geweke’s statistic has an asymptotically standard normal distribution. The test statistic is a standard Z-score: the difference between the two sample means divided by its estimated standard error. The standard error is estimated from the spectral density at zero and so takes into account any autocorrelation. [@bock2020, \text{p.} 11]
+ 
+As shown by the results in Table \@ref(tab:Table5Z), the Geweke statistic is very low for all models. For example, regarding model 1 for Switzerland, 8.62% of the variables' z-values exceed the 1.96 threshold. Therefore, only a very small fraction of all coefficients do not converge.
+
+```{r Table5Z, echo = FALSE, message=FALSE, warning=FALSE}
+table_zvalues <- 
+  structure(list(Country = c("Switzerland", "Brazil"), `(1)` = c("8.62\\%", 
+"10.53\\%"), `(2)` = c("6.9\\%", NA), `(3)` = c("11.06\\%", "12.2\\%"
+), `(4)` = c("14.23\\%", NA), `(5)` = c("14.13\\%", "10.59\\%"
+), `(6)` = c("14.55\\%", "8.12\\%"), `(7)` = c(NA, "9.68\\%"), 
+    `(8)` = c(NA, "8.41\\%")), row.names = c(NA, -2L), class = "data.frame")
+
+table_zvalues %>%
+kable("latex", caption = "Convergence diagnostics, Geweke statistic", booktabs = T, position = "!ht", align = "c", escape = F) %>%
+  kable_styling(latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Model" = 8))
+```
+
+Second, an F-test for serial autocorrelation in the residuals is analyzed. As demonstrated by the results in Table \@ref(tab:Table53CH) for Switzerland and Table \@ref(tab:Table53BR) for Brazil, the null hypothesis of no serial correlation cannot be rejected for a large number of equations' residuals. Regarding the speficities of the test performed,
+
+ >[i]t is the F-test of the familiar Lagrange Multiplier (LM) statistic [see Godfrey -@godfrey1978; -@godfrey1978a], also known as the ’modified LM’ statistic. The null hypothesis is that $rho$, the autoregressive parameter on the residuals, equals 0 indicating absence of serial autocorrelation. For higher order serial correlation, the null is that all $rho$’s jointly are 0. The test is implemented as in Vanessa Smith’s and Alessandra Galesi’s ”GVAR toolbox 2.0 User Guide”, page 129. [@bock2021, \text{p.} 34]
+
+```{r Table53CH, echo = FALSE, message=FALSE, warning=FALSE}
+ftest_1stord_CH <-
+structure(list(`p-values` = c(">0.1", "0.05-0.1", "0.01-0.05", 
+"<0.01"), `(1)` = c("70 (60.87\\%)", "5 (4.35\\%)", "12 (10.43\\%)", 
+"28 (24.35\\%)"), `(2)` = c("75 (65.22\\%)", "9 (7.83\\%)", "10 (8.7\\%)", 
+"21 (18.26\\%)"), `(3)` = c("107 (60.11\\%)", "21 (11.8\\%)", 
+"19 (10.67\\%)", "31 (17.42\\%)"), `(4)` = c("119 (66.85\\%)", 
+"15 (8.43\\%)", "22 (12.36\\%)", "22 (12.36\\%)"), `(5)` = c("64 (46.38\\%)", 
+"10 (7.25\\%)", "18 (13.04\\%)", "46 (33.33\\%)"), `(6)` = c("74 (53.62\\%)", 
+"10 (7.25\\%)", "15 (10.87\\%)", "39 (28.26\\%)")), row.names = c(NA, 
+-4L), class = "data.frame")
+
+ftest_1stord_CH %>%
+kable("latex", caption = "First order serial autocorrelation of cross-country residuals (F-test) for Switzerland", booktabs = T, position = "!ht", align = "c", escape = F) %>%
+  kable_styling(latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Model" = 6))
+```
+
+```{r Table53BR, echo = FALSE, message=FALSE, warning=FALSE}
+ftest_1stord_BR <-
+structure(list(`p-values` = c(">0.1", "0.05-0.1", "0.01-0.05", 
+"<0.01"), `(1)` = c("88 (74.58\\%)", "8 (6.78\\%)", "10 (8.47\\%)", 
+"12 (10.17\\%)"), `(3)` = c("124 (68.51\\%)", "13 (7.18\\%)", 
+"25 (13.81\\%)", "19 (10.5\\%)"), `(5)` = c("106 (75.71\\%)", 
+"5 (3.57\\%)", "8 (5.71\\%)", "21 (15\\%)"), `(6)` = c("105 (75.54\\%)", 
+"10 (7.19\\%)", "13 (9.35\\%)", "11 (7.91\\%)"), `(7)` = c("117 (75.97\\%)", 
+"9 (5.84\\%)", "10 (6.49\\%)", "18 (11.69\\%)"), `(8)` = c("124 (80.52\\%)", 
+"4 (2.6\\%)", "13 (8.44\\%)", "13 (8.44\\%)")), row.names = c(NA, 
+-4L), class = "data.frame")
+
+ftest_1stord_BR %>%
+kable("latex", caption = "First order serial autocorrelation of cross-country residuals (F-test) for Brazil", booktabs = T, position = "!ht", align = "c", escape = F) %>%
+  kable_styling(latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Model" = 6))
+```
+
+One of the main advantages of using the SSVS prior is the possibility of calculating the posterior inclusion probabilities (PIP). This indicator is used to evaluate the explanatory power of particular variables. First, we explore the explanatory power of carry trade ($NP_{t-1}$)^[Results for all variables in all models for Switzerland and Brazil are supplied in Appendices \@ref(appendixdPIPCH) and \@ref(appendixdPIPCH), respectively. For the average, which includes all units, see Appendix  \@ref(appendixdPIP).] in the models for Switzerland (\@ref(tab:Table54CH)) and Brazil (\@ref(tab:Table54BR)). For Switzerland, carry trade ($NP_{t-1}$) is an important explanatory for imports ($M$) and ($EQ$) in Model 5 with 0.54 and 0.81, respectively. Regarding Brazil, a similar result is found. In addition, carry trade ($NP_{t-1}$) is an important variable to explain international reserves ($RES$) with 0.68 in Model 1.
+
+```{r Table54CH, echo = FALSE, message=FALSE, warning=FALSE}
+PIPCHNP.rows.ch.ssvs <-
+structure(list(Model = c("(1)", "(2)", "(3)", "(4)", "(5)", "(6)"
+), `$GDP$` = c("0.22", "0.32", NA, NA, NA, NA), `$C$` = c(NA, 
+NA, "0.13", "0.19", NA, NA), `$GFCF$` = c(NA, NA, "0.20", "0.19", 
+NA, NA), `$X$` = c(NA, NA, "0.17", "0.14", "0.36", "0.26"), `$M$` = c(NA, 
+NA, "0.24", "0.18", "0.54", "0.30"), `$RES$` = c("0.07", "0.12", 
+"0.11", "0.15", "0.10", "0.07"), `$IR$` = c("0.03", "0.04", "0.04", 
+"0.03", "0.03", "0.04"), `$ER$` = c("0.20", "0.20", "0.23", "0.26", 
+"0.20", "0.25"), `$EQ$` = c("0.31", "0.22", "0.37", "0.23", "0.81", 
+"0.30"), `$NP$` = c("0.39", "0.18", "0.30", "0.20", "1.00", "1.00"
+)), row.names = c(NA, -6L), class = "data.frame")
+
+PIPCHNP.rows.ch.ssvs %>%
+kable("latex", caption = "PIP with the explanatory power of carry trade ($NP_{t-1}$), Switzerland", booktabs = T, position = "!ht", align = "c", escape = F, linesep = "") %>%
+  kable_styling(font_size = 9) %>%
+  add_header_above(c(" " = 1, "Model" = 10))
+```
+
+```{r Table54BR, echo = FALSE, message=FALSE, warning=FALSE}
+PIPCHNP.rows.br.ssvs <-
+structure(list(Model = c("(1)", "(3)", "(5)", "(6)", "(7)", "(8)"
+), `$GDP$` = c("0.15", NA, NA, NA, NA, NA), `$C$` = c(NA, "0.21", 
+NA, NA, NA, NA), `$GFCF$` = c(NA, "0.30", NA, NA, NA, NA), `$X$` = c(NA, 
+"0.45", "0.34", "0.24", "0.36", "0.24"), `$M$` = c(NA, "0.61", 
+"0.45", "0.74", "0.52", "0.64"), `$RES$` = c("0.68", "0.28", 
+"0.40", "0.32", "0.44", "0.32"), `$IR$` = c("0.27", "0.44", "0.03", 
+"0.04", "0.00", "0.06"), `$ER$` = c("0.26", "0.25", "0.29", "0.21", 
+"0.26", "0.20"), `$EQ$` = c("0.24", "0.24", "0.50", "0.37", "0.54", 
+"0.33"), `$NP$` = c("0.29", "0.41", "0.84", "0.70", "0.80", "0.56"
+), `$IP$` = c(NA, NA, NA, NA, "0.14", "0.14")), row.names = c(NA, 
+-6L), class = "data.frame")
+
+PIPCHNP.rows.br.ssvs %>%
+kable("latex", caption = "PIP with the explanatory power of carry trade ($NP_{t-1}$), Brazil", booktabs = T, position = "!ht", align = "c", escape = F, linesep = "") %>%
+  kable_styling(font_size = 9) %>%
+  add_header_above(c(" " = 1, "Model" = 11))
+```
+
+The importance of the $NP$'s explanatory variables is shown by the results for Switzerland in \@ref(tab:Table54CH) and Brazil in \@ref(tab:Table54BR). In general, exchange rate ($ER$) is an important explanatory variable of carry trade ($NP$) for Switzerland and Brazil.
+
+```{r Table55CH, echo = FALSE, message=FALSE, warning=FALSE}
+PIPCHNP.cols.ch.ssvs <-
+structure(list(Variable = c("$GDP_{t-1}$", "$C_{t-1}$", "$GFCF_{t-1}$", 
+"$X_{t-1}$", "$M_{t-1}$", "$RES_{t-1}$", "$IR_{t-1}$", "$ER_{t-1}$", 
+"$EQ_{t-1}$", "$NP_{t-1}$"), `(1)` = c("0.09", NA, NA, NA, NA, 
+"0.20", "0.21", "0.23", "0.17", "0.39"), `(2)` = c("0.13", NA, 
+NA, NA, NA, "0.22", "0.14", "0.24", "0.26", "0.18"), `(3)` = c(NA, 
+"0.09", "0.27", "0.36", "0.41", "0.20", "0.17", "0.26", "0.17", 
+"0.30"), `(4)` = c(NA, "0.12", "0.16", "0.39", "0.47", "0.25", 
+"0.16", "0.21", "0.18", "0.20"), `(5)` = c(NA, NA, NA, "0.26", 
+"0.20", "0.22", "0.20", "0.48", "0.16", "1.00"), `(6)` = c(NA, 
+NA, NA, "0.41", "0.40", "0.17", "0.28", "0.46", "0.38", "1.00"
+)), row.names = c(NA, -10L), class = "data.frame")
+
+PIPCHNP.cols.ch.ssvs %>%
+kable("latex", caption = "PIP with the explanatory variables of carry trade ($NP$), Switzerland", booktabs = T, position = "!ht", align = "c", escape = F, linesep = "") %>%
+  add_header_above(c(" " = 1, "Model" = 6)) %>%
+  kable_styling(font_size = 9)
+```
+
+```{r Table55BR, echo = FALSE, message=FALSE, warning=FALSE}
+PIPCHNP.cols.br.ssvs <-
+structure(list(Variable = c("$GDP_{t-1}$", "$C_{t-1}$", "$GFCF_{t-1}$", 
+"$X_{t-1}$", "$M_{t-1}$", "$RES_{t-1}$", "$IR_{t-1}$", "$ER_{t-1}$", 
+"$EQ_{t-1}$", "$NP_{t-1}$", "$IP_{t-1}$"), `(1)` = c("0.14", 
+NA, NA, NA, NA, "0.14", "0.26", "0.19", "0.42", "0.29", NA), 
+    `(3)` = c(NA, "0.11", "0.12", "0.27", "0.28", "0.24", "0.26", 
+    "0.13", "0.39", "0.41", NA), `(5)` = c(NA, NA, NA, "0.22", 
+    "0.34", "0.22", "0.35", "0.64", "0.20", "0.84", NA), `(6)` = c(NA, 
+    NA, NA, "0.18", "0.22", "1.00", "0.30", "0.98", "0.25", "0.70", 
+    NA), `(7)` = c(NA, NA, NA, "0.20", "0.26", "0.23", "0.30", 
+    "0.69", "0.22", "0.80", "0.27"), `(8)` = c(NA, NA, NA, "0.20", 
+    "0.18", "1.00", "0.23", "0.94", "0.22", "0.56", "0.32")), row.names = c(NA, 
+-11L), class = "data.frame")
+
+PIPCHNP.cols.br.ssvs %>%
+kable("latex", caption = "PIP with the explanatory variables of carry trade ($NP$), Brazil", booktabs = T, position = "!ht", align = "c", escape = F, linesep = "") %>%
+  add_header_above(c(" " = 1, "Model" = 6)) %>%
+  kable_styling(font_size = 9)
+```
+
+Lastly, other robustness checks are supplied in the Appendices. In Appendix \@ref(appendixd12), there is the cross-unit correlation of posterior median residuals. To ensure a reliable dynamic analysis, the cross-unit correlation needs to be small (see @dees2007 for further details). Overall, correlation is negligible in all models. Results for the in-sample fit follow reasonably well the actual data, as shown in Appendix \@ref(appendixdFIT). The enhanced model fitness derives from the high-dimensionality of the BGVAR model, which is also a very adaptive model. 
+
+## Carry trade ($NP$) effects on the domestic economy {#fivethree}
+
+The BGVAR model allows dynamic analysis of the real economy effects of the carry trade in a global model. Moreover, the time profile of these effects is investigated. Domestic and international transmissions of the carry trade structural shocks are analyzed by controlling global factors. Specifically, two shocks are examined. First, for Switzerland, a decrease in the carry trade variable is associated with an increase in the short positions over long positions. In this sense, the funding role of the Swiss franc is augmented. In other words, there is more carry trade activity funded by borrowing Swiss francs. Second, for Brazil, a positive carry trade structural shock is estimated. With $NP>0$, long positions outstand short positions. A build-up in long positions characterizes target currencies. Accordingly, both innovations are scaled to -0.5 and 0.5 for Switzerland and Brazil, respectively, in this exercise.^[The carry trade ($NP$) variable ranges from 1 to -1.] Consequently, the expected movement in the exchange rate derived from both shocks is a depreciation of the Swiss franc and an appreciation of the Brazilian real relative to the U.S. dollar.
+
+The identification of the structural shocks is done by analyzing the generalized impulse response functions (GIRFs), as developed by @pesaran1998. @dees2007 [\text{p.} 21] points out that "the GIRF is invariant to the ordering of the variables and the countries in the GVAR model, which is clearly an important consideration." As detailed by @chudik2016 [\text{p.} 176], "[t]he GIRF approach does not aim at identification of shocks according to some canonical system or a priori economic theory, but considers a counterfactual exercise where the historical correlations of shocks are assumed as given." Likewise, the generalized forecast error variance decomposition (GFEVD) developed by @lanne2016 is computed to verify "the amount of information each variable contributes to the other variables in the autoregression." [@bock2020, \text{p.} 16] Results for the GFEVD estimations are presented and discussed in \@ref(appendixd5). 
+
+By implementing the BGVAR with the GIRF identification, the results of the carry trade shocks for Switzerland and Brazil are explored in subsections \@ref(fivethreeone) and \@ref(fivethreetwo), respectively.^[Results for $IR$ are available in Appendix \@ref(appendixdIR).] Each subsection presents a summary of the results (see Table \@ref(tab:Table57) for Switzerland and Table \@ref(tab:Table57) for Brazil). 
+
+### Results for Switzerland {#fivethreeone}
+
+An increase in the Swiss franc short positions with futures is the synthetic equivalent of an increase in the borrowing in CHF. This is in line with @brunnermeier2008 [\text{p.} 320], when referring to the Japanese yen (JPY):
+
+ >Carry traders, however, do not necessarily take positions relative to the USD [U.S. dollar]. For example, to exploit the high interest rates in AUD [Australian dollar] and the low interest rates in JPY [Japanese yen] in recent years, carry traders may have taken a long position in AUD, financed by borrowing in JPY (or the synthetic equivalent of this position with futures or OTC [over-the-counter] currency forwards).
+
+Results for the negative carry trade ($NP$) shock (scale equal to -0.5) are summarized in Table \@ref(tab:Table56). In Appendix \@ref(appendixdNPCH), Figures \@ref(fig:Figure51) (Models 1 and 2), \@ref(fig:Figure52) (Models 3 and 4) and \@ref(fig:Figure51) (Models 5 and 6) illustrate these results.
+
+(ref:FigureIRCH) Figures \@ref(fig:FigureIRCH1) and \@ref(fig:FigureIRCH2) in Appendix \@ref(appendixdIR)
+
+```{r Table56, echo = FALSE, message=FALSE, warning=FALSE}
+sumresults.CH <- data.frame(Variables = c("$GDP$", 
+                                      "$C$",
+                                      "$GFCF$",
+                                      "$X$",
+                                      "$M$",
+                                      "$RES$",
+                                      "$ER$",
+                                      "$EQ$"),
+                        Text_1 = c("Gross domestic product",
+                                   "Final consumption expenditure",
+                                   "Gross fixed capital formation",
+                                   "Exports of goods and services",
+                                   "Imports of goods and services",
+                                   "International reserves",
+                                   "Nominal exchange rate",
+                                   "Equity (share) prices"),
+                        Text_3 = c("$\\circ$",
+                                   "",
+                                   "",
+                                   "",
+                                   "",
+                                   "$\\circ$",
+                                   "$\\Uparrow$",
+                                   "$\\circ$"),
+                        Text_4 = c("$\\downarrow$",
+                                   "",
+                                   "",
+                                   "",
+                                   "",
+                                   "$\\Downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\circ$"),
+                        Text_5 = c("",
+                                   "$\\circ$",
+                                   "$\\circ$",
+                                   "$\\circ$",
+                                   "$\\circ$",
+                                   "$\\downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\circ$"),
+                        Text_6 = c("",
+                                   "$\\Downarrow$",
+                                   "$\\downarrow$",
+                                   "$\\circ$",
+                                   "$\\circ$",
+                                   "$\\Downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\circ$"),
+                        Text_7 = c("",
+                                   "",
+                                   "",
+                                   "$\\Downarrow$",
+                                   "$\\Downarrow$",
+                                   "$\\Downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\Downarrow$"),
+                        Text_8 = c("",
+                                   "",
+                                   "",
+                                   "$\\Downarrow$",
+                                   "$\\Downarrow$",
+                                   "$\\Downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\uparrow$"),
+                        stringsAsFactors = F)
+colnames(sumresults.CH) <- c("Variable", "Definition",
+                         "${(1)}^\\dagger$", "${(2)}^\\ddagger$", "${(3)}^\\dagger$", 
+                         "${(4)}^\\ddagger$", "${(5)}^\\dagger$", "${(6)}^\\ddagger$")
+
+sumresults.CH %>%
+mutate_all(linebreak) %>%
+kable("latex", caption = "Results summary for Switzerland", booktabs = T, linesep = "", align = "clccccccc", escape = F) %>%
+  kable_styling(latex_options = c("scale_down", "HOLD_position")) %>%
+  #kable_styling(font_size = 8) %>%
+  #column_spec(2, width = "6cm") %>%
+  #column_spec(3, width = "3cm") %>%
+  footnote(
+    general = c("\\\\footnotesize{$Notes$: See (ref:FigureIRCH) for the responses of policy interest rates ($IR$), which do not present any statistical significant result.}$\\\\newline$ \\\\footnotesize{$Symbols$: $\\\\dagger$ ($VIX$), $\\\\ddagger$ ($GCF$), $\\\\Uparrow$/$\\\\Downarrow$ (increase/decrease, statistically significant), $\\\\uparrow$/$\\\\downarrow$ (increase/deacrease, partially statistically significant), and $\\\\circ$ (not statistically significant).}"),
+    general_title = "",
+    footnote_as_chunk = T,
+    escape = F,
+    threeparttable = T) %>%
+  add_header_above(c(" " = 2, "Quarterly" = 4, "Monthly" = 2), italic = T) %>%
+  add_header_above(c(" " = 2, "Model" = 6))
+```
+
+In the current situation of a negative policy rate in Switzerland, increased activity of the Swiss franc as a funding currency is very plausible. Followed by this increase in short positions, results show the Swiss franc depreciation relative to the U.S. dollar in all models. This confirms the expected exchange rate movement of the funding currency in a carry trade strategy. In my opinion, the CFTC data proxies these expectations, implying that the obtained results provide evidence of the UIP failure. In other words, the expected exchange rate in the futures market impacts spot rates ($ER$).
+
+Consequently, higher speculation (i.e., carry trade) provokes negative spillovers on the Swiss real economy, crowding out real investment. As demonstrated by the results, an increased carry trade activity with the Swiss franc as a funding currency leads to a negative impact in gross domestic product ($GDP$), consumption ($C$), investment ($GFCF$), exports ($X$), imports ($M$), and international reserves ($RES$). In addition, there is a mixed result for the impact on the Swiss stock market index. On the one hand, the ability of hedge funds to effectively influence asset prices found follows the results for the Japanese yen carry trade in @fong2013. On the other hand, there is partial evidence for higher share prices after the innovation, perhaps in a portfolio approach (safe currency role). Overall, the statistical significance of the results is variant to the model specification. Furthermore, the scale of the impact is economically small. More importantly, there is evidence of the existence of the effects of carry trade on the real economy.
+
+### Results for Brazil {#fivethreetwo}
+
+For Brazil, the results summary for the positive carry trade ($NP$) shock (scale at 0.5) is given by Table \@ref(tab:Table56). Illustrations of these results are supplied by Figures \@ref(fig:Figure54) (Models 1 and 3), \@ref(fig:Figure55) (Models 5 and 6) and \@ref(fig:Figure56) (Models 7 and 8) in Appendix \@ref(appendixdNPBR).
+
+(ref:FigureIRBR) Figures \@ref(fig:FigureIRBR1) and \@ref(fig:FigureIRBR2) in Appendix \@ref(appendixdIR)
+
+```{r Table57, echo = FALSE, message=FALSE, warning=FALSE}
+sumresults.BR <- data.frame(Variables = c("$GDP$", 
+                                      "$C$",
+                                      "$GFCF$",
+                                      "$X$",
+                                      "$M$",
+                                      "$RES$",
+                                      "$ER$",
+                                      "$EQ$",
+                                      "$IP$"),
+                        Text_1 = c("Gross domestic product",
+                                   "Final consumption expenditure",
+                                   "Gross fixed capital formation",
+                                   "Exports of goods and services",
+                                   "Imports of goods and services",
+                                   "International reserves",
+                                   "Nominal exchange rate",
+                                   "Equity (share) prices",
+                                   "Industrial production"),
+                        Text_3 = c("$\\circ$",
+                                   "",
+                                   "",
+                                   "",
+                                   "",
+                                   "$\\Uparrow$",
+                                   "$\\downarrow$",
+                                   "$\\circ$",
+                                   ""),
+                        Text_4 = c("",
+                                   "$\\circ$",
+                                   "$\\circ$",
+                                   "$\\circ$",
+                                   "$\\downarrow$",
+                                   "$\\circ$",
+                                   "$\\Downarrow^{ST}$, $\\uparrow^{LT}$",
+                                   "$\\circ$",
+                                   ""),
+                        Text_5 = c("",
+                                   "",
+                                   "",
+                                   "$\\circ$",
+                                   "$\\downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\downarrow$",
+                                   "$\\circ$",
+                                   ""),
+                        Text_6 = c("",
+                                   "",
+                                   "",
+                                   "$\\uparrow$",
+                                   "$\\downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\circ$",
+                                   "$\\circ$",
+                                   ""),
+                        Text_7 = c("",
+                                   "",
+                                   "",
+                                   "$\\circ$",
+                                   "$\\downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\circ$",
+                                   "$\\circ$",
+                                   "$\\circ$"),
+                        Text_8 = c("",
+                                   "",
+                                   "",
+                                   "$\\circ$",
+                                   "$\\downarrow$",
+                                   "$\\Uparrow$",
+                                   "$\\downarrow$",
+                                   "$\\circ$",
+                                   "$\\uparrow$"),
+                        stringsAsFactors = F)
+colnames(sumresults.BR) <- c("Variable", "Definition",
+                         "${(1)}^\\dagger$", "${(3)}^\\dagger$", "${(5)}^\\dagger$", 
+                         "${(6)}^\\ddagger$", "${(7)}^\\dagger$", "${(8)}^\\ddagger$")
+
+sumresults.BR %>%
+mutate_all(linebreak) %>%
+kable("latex", caption = "Results summary for Brazil", booktabs = T, linesep = "", align = "clccccccc", escape = F, position = "!ht") %>%
+  kable_styling(latex_options = c("scale_down")) %>%
+  #kable_styling(font_size = 8) %>%
+  #column_spec(2, width = "6cm") %>%
+  #column_spec(3, width = "3cm") %>%
+  footnote(
+    general = c("\\\\footnotesize{$Notes$: See (ref:FigureIRBR) for the responses of policy interest rates ($IR$), which do not present any statistical significant result.}$\\\\newline$ \\\\footnotesize{$Symbols$: $\\\\dagger$ ($VIX$), $\\\\ddagger$ ($GCF$), $\\\\Uparrow$/$\\\\Downarrow$ (increase/decrease, statistically significant), $\\\\uparrow$/$\\\\downarrow$ (increase/deacrease, partially statistically significant), $\\\\circ$ (not statistically significant), and ${}^{ST}$/${}^{LT}$ (short- and long-term).}"),
+    general_title = "",
+    footnote_as_chunk = T,
+    escape = F,
+    threeparttable = T) %>%
+  add_header_above(c(" " = 2, "Quarterly" = 2, "Monthly" = 4), italic = T) %>%
+  add_header_above(c(" " = 2, "Model" = 6))
+```
+
+Following the carry trade activity increase with the Brazilian real as a target currency, the exchange rate ($ER$) responds negatively. Carry traders expect an appreciation of the Brazilian real relative to the U.S. dollar in a carry trade strategy. Indeed, results are similar to the Swiss franc behavior with evidence for the UIP invalidity. Nonetheless, there is partial evidence for a depreciation of the Brazilian real in the long-term in Model 3.
+
+Following the same mechanism presented for Switzerland, carry trade effects on the real economy start in the exchange rate channel. After the positive carry trade shock, there is no statistically significant result for the gross domestic product ($GDP$), consumption ($C$), and investment ($GFCF$). Surprisingly, although as a partial result, there is an increase in industrial production followed by this innovation. The same holds for exports ($X$) and imports ($M$), where partially statistically significant results are found. Contrarily to the expected impact of the exchange rate channel, the former increases while the latter decreases with a higher carry trade ($NP$) activity. Going beyond the results' analysis, speculative currency activity in Brazilian real may seem better than the lack of speculation. In other words, when international investors distance themselves from Brazil, it may be worse for the Brazilian economy than these speculators' presence. Solutions for this conundrum require political will.
+
+More critically, international reserves increase after the carry trade ($NP$) shock. These results highlight the use of sterilization operations by the Brazilian Central Bank to contain the negative spillovers of carry trade on the domestic economy. Going beyond the results, there is evidence of the Brazilian "financial integration and its subordinated nature." [@kaltenbrunner2018a, \text{p.} 297]. In the same vein,
+
+ >Rather than letting this excess [of capital flows] be absorbed in the domestic economy, ECE [emerging capitalist economies] central banks have accumulated a ‘war-chest’ of foreign exchange reserves. First, the unprecedented and massive wave of capital inflows relative to the size of domestic financial markets created unsustainable pressures on domestic liquidity, asset prices, and the exchange rate. Reserve accumulation (and consequent sterilisation operations) sought to contain these. Second, as discussed in the second section, being at the lower rungs of the international monetary hierarchy means that ECEs have to be prepared to face large and sudden flights into currencies with higher liquidity premia (or into world money), frequently unrelated to economic conditions. Reserve accumulation is a necessary precaution to satisfy this demand and avoid an excessive impact on the domestic economy (for an analysis of the demand for reserves from a Post Keynesian perspective, see, e.g. @carvalho2009a). [@kaltenbrunner2018a, \text{p.} 297]
+
+This is in line with @bresser-pereira2020 [\text{p.} 11]:
+
+ >Specifically, the subordinated financial integration shapes the relationships between agents and the financial markets through carry-trade operations that exploit the interest-rate spreads that stem from Brazil’s domestic interest rates that are very high compared with those in developed economies (such as the US federal funds rates). The connection with the Brazilian economy’s financialization takes place via the international reserves accumulation policy and the Central Bank’s intensive use of repo operations (“operações compromissadas” in Portuguese) to calibrate liquidity in the banking reserves market.
+
+The international monetary system's power relations are key to understanding the carry trade within the political economy approach. The U.S. monetary policy is much more powerful than any other globally. As highlighted by @miranda-agrippino2021 [\text{p.} 45], "as long as capital flows across borders are free, and macroprudential tools or capital controls are not used, monetary conditions in any country, even those with flexible exchange rates, are partly dictated by the monetary policy of the hegemon (the US)." @breitenlechner2021 [\text{p.} 27] demonstrate that "US monetary policy internalises through spillbacks only some of the spillovers it emits to the rest of the world." These monetary spillovers are not exclusive to developed countries. @cavaca2021 [\text{p.} 753] emphasize "that regional interactions could be even stronger than U.S. monetary shocks, which show the importance of following the spread not only of the U.S. monetary policy, but also policies originating from other South American countries." More importantly, for @bernoth2021 [\text{p.} 14], "[t]o regain more monetary autonomy in the process of globalization, it appears effective to establish policies that support a further reduction of a country’s net foreign currency exposure." @musthaq2021 [\text{p.} 15] goes in the same direction:
+
+ >Policies in core economies and innovations in financial markets only serve to increase the vulnerability of the global financial system to liquidity crunches, which reinforce the need for ECE [emerging capitalist economies] central banks to act as market makers and embed their balance sheets in forex and bond markets to ensure the smooth functioning of the financial system.
+
+## Conclusions {#fivefour}
+
+In a novel approach to the investigation of the carry trade, this paper contributes to the literature in two main directions. First, the carry trade effects on the real economy are estimated with a BGVAR model. Second, a political economy approach is proposed to investigate further the impacts of the carry trade on the real economy. In general, due to the invalidity of the UIP, carry trade proves its existence by being profitable. More importantly, the paramount result is the carry trade negative impact on the real economy. 
+
+Within the current international monetary system, which imposes a currency hierarchy, carry trade presents a new puzzle for central banks from both developing and developed countries. In the present state of affairs, capital controls and increased international reserves may not be the best policies to tame the negative effects of the carry trade. A new international architecture supporting capital controls is imperative in conjunction with wider international cooperation among central banks. @grabel2018 [\text{p.} 193] is precise: 
+
+ >The pressing policy challenge today [...] is to construct regimes that expand national policy autonomy to use capital controls while managing cross-border spillover effects. This certainly suggests abandoning or, at the very least, renegotiating the restrictions on capital controls in existing and pending bilateral and multilateral trade and investment agreements. It also suggests the need to develop global and/or regional frameworks for burden sharing and regional and international cooperation in the case of spillover effects.
+
+Regarding the empirical results, a specific carry shock is examined for Switzerland and Brazil, considering the specificities of their currency. Switzerland's carry trade shock is negative considering the Swiss franc as a funding currency. In the Brazilian case with its target currency, the positive carry trade shock increases the net positions (long minus short). In general, results show evidence supporting the hypothesis of a negative impact of the carry trade on the real economy. Nevertheless, the models' outcomes are variant to the model specification, notably the frequency used. Most importantly, the paper adds new empirical results to the literature that investigates the relationship between financialization and investment. In the survey of the empirical literature published by @davis2017, there is no mention of the carry trade activity. Results presented here find evidence of crowding out.
+
+Furthermore, another contribution of the political economy approach to investigate the carry trade is related to the importance of the central bank's social responsibility (CBSR). A central bank needs to support "the global development (monetary, economic and social) of the society that is accountable for" [@vallet2020, \text{p.} 164]. By letting carry trade freely implemented all around, central banks may be going against this global development. Notably, @vallet2021 [\text{p.} 35] highlights that the CBSR "is a buoyant issue with respect to the forthcoming challenges of societies: financial instability, climate change, increasing social inequalities, and so forth." In the context of the carry trade, central banks seem to be extending the “sabotage in the financial system” [@nesvetailova2020]. Therefore, enhanced global governance is needed to support central banks' actions. Solutions to this complex problem require political will, which is not an option for countries with peripheral currencies. This reinforces the need for the political economy to understand the carry trade.
+
+Finally, central banks could follow the procedures implemented by the CFTC to identify non-commercial traders. Better data would enhance our understanding of the carry trade. Regarding future research on the carry trade effects, the estimated BGVAR model could use sign restrictions identification. Additionally, the use of other variables to proxy the real economy is needed (e.g., unemployment rate). Similarly, groups of funding and target currencies could be investigated together. Last but not least, the model could be estimated using the monthly GDP gap published by the OECD to investigate the role of forward guidance in monetary policy.

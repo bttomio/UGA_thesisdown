@@ -1,0 +1,17 @@
+I am deeply indebted to Guillaume Vallet for all his constant engagement with this thesis. Words are not enough to express my gratitude for his support, advice, and guidance. His joyful and friendly personality, his enthusiastic passion for research, his willingness to mentor, his jokes to break the tension, and his inspiring intellectual openness have provided invaluable contributions throughout my Ph.D. experience. Collaborating with him has been a fantastic experience. I hope these collaborations will continue for much longer. In his own words, "*on ne lâche pas !*" Above all, thanks a million for your warm friendship. I am very proud to be your first Ph.D. student to graduate!
+
+I cannot thank Marc Lavoie, Pierre Berthaud, and Louis-Philippe Rochon enough for pushing me annually during my *comité de suivi individuel* (CSI) meetings. You are and will continue to be, role models that guide me as a researcher. Similarly, Mohamed Amal and Eckhard Hein's guidance during my previous studies were crucial to choosing the academic path. I am very grateful to Sidney Silva's support of my academic career since my undergraduate studies. In advance, I would like to thank the members of my Ph.D. committee for accepting participation: Roberto Meurer, Cédric Tille, Ilene Grabel, Annina Kaltenbrunner, Silvia Miranda-Agrippino, and Radu Burlacu. Notably, I am deeply grateful to Cédric Tille for his insightful comments, suggestions, and recommendations on an earlier version of the manuscript.
+
+Many remarkable people helped me during this journey as a Ph.D. student. In the laboratory Centre de Recherche en Économie de Grenoble (CREG), I own a great deal to Adrien Faudot. During the Minsky Summer Seminar at the Levy Economics Institute of Bard College in 2016, he "sold" me the idea to pursue a Ph.D. in Grenoble. People at CREG have contributed to my journey in Grenoble, namely: Faruk Ülgen, Virgile Chassagnon, Bruno Lamotte, Lindsay Bardou, Solange Amoussou, Catherine Ciesla, Julien Reysz and Hervé Charmettant. Mainly, I am most grateful to the other Ph.D. students (when I met them), who made the daily routine easier: Marcos Centurión-Vicencio, Ababacar Sadikh Cissé, Hamed Karamoko, Kenneth Ky, Oka Kouadio Denis, Josué Banga, Alassane Diallo, Ibrahim Moussana Alkabous, Gaelle Despierre-Corporon, and Donia Dowidar.
+
+I am most grateful to the event organizers that made possible vital exchanges to write this thesis. The `R` community helped me a lot to develop the skills needed to progress in this research. Most importantly, none of this would be possible without the financial support of Universidade de Blumenau (FURB), Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES), under the Ministry of Education in Brazil, École Doctorale des Sciences Économiques (EDSE) and CREG.
+
+I also thank my parents for their support of my education. One of my last talks with my grandfather before his passing was about my academic career. While talking about future projects, he mentioned that we would finally have a "doctor" in the family. Here we are, *vô*, thank you!
+
+Finally, I will remember the love and support of Maya, my wife, forever. You are the primary source of all of this. You are more than extraordinary. I will forever thank you for staying next to me. You and Benjamin made this possible. This thesis is dedicated to both of you. *Amo vocês!*
+
+\begin{flushright}
+Bruno Thiago Tomio \\
+Grenoble, France \\
+25 December 2021
+\end{flushright}

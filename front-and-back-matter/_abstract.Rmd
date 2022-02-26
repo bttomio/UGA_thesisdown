@@ -1,0 +1,18 @@
+Carry trade is a well-established investment strategy in the world financial market. By profiting from the failure of the uncovered interest rate parity (UIP), speculators position themselves short in a funding currency and long position in a target currency. Two of the main currencies involved in this currency speculation are the Swiss franc and the Brazilian real are investigated in this thesis. The former presents a dual role, funding and safe haven currency, in the actual international monetary system. Regarding the latter, it is a main developing country with a target currency, with a relatively high policy interest rate. Considering these opposed positions, the main question pursued is: how does carry trade impact the real economy activity? After an initial chapter with the research design, this thesis investigates this question in three chapters by proxying the carry trade with the positions data in futures market, published by the United States (U.S.) Commodity Futures Trade Commission (CFTC). Overall, there is evidence that the carry trade impacts the real economy. Nevertheless, the results are different for each currency, which confirms their different position in the currency hierarchy of the actual international monetary system. The general conclusion highlight the need to rethink the role of central banks in the face of the risks associated with the carry trade. These institutions need more domestic cooperation, with macroprudential policies with other national institutions, and international coordination, with more support from global governance institutions.\
+
+\noindent _Keywords_: Carry trade; Financialization; Systemic risk; Switzerland; Brazil
+
+\newpage
+
+```{=latex}
+\hypertarget{résumé}{%
+\chapter*{Résumé}\label{résumé}}
+\thispagestyle{empty}
+
+\adjustmtc
+\markboth{Résumé}{}
+```
+
+Le carry trade est une stratégie d'investissement bien établie sur le marché financier mondial. En profitant de la non validité de la parité des taux d'intérêt non couverte (UIP), les spéculateurs se positionnent « short » sur une devise de financement et « long » sur une devise cible. Deux des principales devises impliquées dans cette spéculation monétaire, le franc suisse et le real brésilien, sont étudiées dans cette thèse. Le franc suisse présente un double rôle, comme monnaie financement et refuge, dans le système monétaire international actuel. Concernant le real brésilien, il s'agit de la monnaie d'un des principaux pays en développement avec une devise cible, avec un taux d'intérêt directeur relativement élevé. Face à ces positions opposées, la principale question poursuivie est : comment le carry trade impacte-t-il l'économie réelle ? Après un premier chapitre présentant notre conception de la recherche, cette thèse examine cette question en trois chapitres en rapprochant le carry trade des données de positions sur le marché à terme, publiées par la Commodity Futures Trade Commission (CFTC) des États-Unis. Dans l'ensemble, il y a des évidences qui demontrent que le carry trade a un impact sur l'économie réelle. Néanmoins, les résultats sont différents pour chaque devise, ce qui confirme leur position inégale dans la hiérarchie monétaire du système monétaire international actuel. La conclusion générale souligne la nécessité de repenser le rôle des banques centrales face aux risques associés au carry trade. Ces institutions ont besoin de plus de coopération nationale, pour mettre en œuvre des politiques macroprudentielles avec d'autres institutions nationales, et de coordinations internationales, avec plus de soutien des institutions de gouvernance mondiale.\
+
+\noindent _Mots-clés_: Carry trade ; Financiarisation ; Risque systémique ; Suisse ; Brésil

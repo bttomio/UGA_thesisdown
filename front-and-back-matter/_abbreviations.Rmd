@@ -1,0 +1,126 @@
+\item[API] Application programming interface
+
+\item[AUD] Australian dollar
+
+\item[B3] Brazil Stock Exchange and Over-the-Counter Market
+
+\item[BCB] Brazilian Central Bank
+
+\item[BGVAR] Bayesian global vector autoregressive
+
+\item[BIS] Bank for International Settlements
+
+\item[BOP/IIP] IMF’s Balance of Payments and International Investment Position Statistics
+
+\item[BRL] Brazilian real
+
+\item[CAD] Canadian dollar
+
+\item[CBOE] Chicago Board Options Exchange   
+
+\item[CBSR] Central bank's social responsibility
+
+\item[CDS] Credit default swap
+
+\item[CFTC] Commodity Futures Trading Commission
+
+\item[CHF] Swiss franc
+
+\item[CIP] Covered interest rate parity
+
+\item[COT] Commitments of Traders
+
+\item[CSS] Cross-currency swaps
+
+\item[DI] (Foreign) direct investment
+
+\item[ETF] Exchange traded fund
+
+\item[ETN] Exchange traded note
+
+\item[EUR] Euro
+
+\item[FDT] Foreign exchange daily turnover
+
+\item[FED] Federal Reserve
+
+\item[Forex] Foreign exchange
+
+\item[FRED] Federal Reserve Economic Data
+
+\item[FX] Foreign exchange
+
+\item[FXAs] Foreign exchange agreement transactions
+
+\item[GBP] British pound
+
+\item[GCF] Global common factor
+
+\item[GFC] Global financial crisis
+
+\item[GFEVD] Generalized forecast error variance decomposition
+
+\item[GIRF] Generalized impulse response function
+
+\item[IFS] International Financial Statistics
+
+\item[IMF] International Monetary Fund
+
+\item[JPY] Japanese yen
+
+\item[LHS] Left-hand axis
+
+\item[LM] Lagrange-multiplier
+
+\item[MXN] Mexican peso
+
+\item[MWald] Modified Wald (test)
+
+\item[NBFI] Non-bank financial intermediation
+
+\item[NDFs] Non-deliverable forwards
+
+\item[NZD] New Zealand dollar
+
+\item[OECD] Organisation for Economic Co-operation and Development
+
+\item[OTC] Over-the-counter
+
+\item[PPP] Purchasing power parity
+
+\item[RBL] Russian ruble 
+
+\item[RHS] Right-hand axis
+
+\item[RIP] Real interest rate parity
+
+\item[SNB] Swiss National Bank
+
+\item[SSA] Social structures of accumulation
+
+\item[SVAR] Structural vector autoregressive
+
+\item[SSVS] Stochastic search variable selection prior
+
+\item[TFF] Traders in Financial Futures
+
+\item[TINA] There is no alternative
+
+\item[UEH] Unbiased efficiency hypothesis
+
+\item[UEP] Uncovered equity parity condition
+
+\item[UIP] Uncovered interest rate parity
+
+\item[UNCTAD] United Nations Conference on Trade and Development
+
+\item[U.S.] United States of America
+
+\item[USD] United States of America dollar
+
+\item[VAR] Vector autoregressive
+
+\item[VIX] CBOE Volatility Index
+
+\item[ZLB] Zero lower bound
+
