@@ -1,6 +1,13 @@
 With the files in this repository, you can:
 
-1. Reproduce my thesis manuscript,
+1. Reproduce my thesis manuscript
+
+* Open bttomio-thesis.Rproj
+* Open index.Rmd
+* Knit (Ctrl + Shitf + k) index.Rmd
+* It takes some time to knit the file
+* The final document is called `_main.pdf`, which is located in the `docs` folder
+
 2. Reproduce my econometric results (Stata and R codes),
 3. Reproduce my presentation for the thesis committee.
 
