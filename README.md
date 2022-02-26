@@ -6,7 +6,8 @@ With the files in this repository, you can:
 
 Here is the `sessionInfo()` output for the manuscript:
 
-`R version 4.1.2 (2021-11-01)
+```
+R version 4.1.2 (2021-11-01)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu 20.04.4 LTS
 
@@ -27,6 +28,7 @@ loaded via a namespace (and not attached):
  [1] colorspace_2.0-2 scales_1.1.1     compiler_4.1.2   R6_2.5.1         bookdown_0.24   
  [6] fastmap_1.1.0    htmltools_0.5.2  tools_4.1.2      yaml_2.2.1       rmarkdown_2.11  
 [11] knitr_1.36.9     xfun_0.28.10     digest_0.6.29    lifecycle_1.0.1  munsell_0.5.0   
-[16] rlang_0.4.12     evaluate_0.14`
+[16] rlang_0.4.12     evaluate_0.14
+```
 
 If you have any question or want to report an issue/error, please feel free to reach me.
