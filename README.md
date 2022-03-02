@@ -10,7 +10,7 @@ With the files in this repository, you can:
 
 2. Reproduce my econometric results (Stata and R codes)
 
-* Go to the directory `/ECONOMETRIC%20PROCEDURES`
+* Go to the directory `/ECONOMETRIC PROCEDURES`
 * Follow the instructions for each chapter (UNDER CONSTRUCTION)
 
 4. Reproduce my presentation for the thesis committee
