@@ -8,8 +8,15 @@ With the files in this repository, you can:
 * It takes some time to knit the file
 * The final document is called `_main.pdf`, which is located in the `docs` folder
 
-2. Reproduce my econometric results (Stata and R codes),
-3. Reproduce my presentation for the thesis committee.
+2. Reproduce my econometric results (Stata and R codes)
+
+* Go to the directory `/ECONOMETRIC%20PROCEDURES`
+* Follow the instructions for each chapter (UNDER CONSTRUCTION)
+
+4. Reproduce my presentation for the thesis committee
+
+* Available here: https://bttomio.github.io/slides/PhDdefense/slides.html
+* Code: https://github.com/bttomio/bttomio.github.io/tree/master/slides/PhDdefense
 
 Here is the `sessionInfo()` output for the manuscript:
 
