@@ -1,3 +1,5 @@
+First, download the code as a `.zip` file and extract the files to a specific folder.
+
 With the files in this repository, you can:
 
 1. Reproduce my thesis manuscript
