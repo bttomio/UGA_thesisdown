@@ -15,7 +15,7 @@ With the files in this repository, you can:
 * Go to the directory `ECONOMETRIC PROCEDURES`
 * For Chapter 4, use `BGVAR_2.4.3`
 
-4. Reproduce my presentation for the thesis committee
+3. Reproduce my presentation for the thesis committee
 
 * Available here: https://bttomio.github.io/slides/PhDdefense/slides.html
 * Code: https://github.com/bttomio/bttomio.github.io/tree/master/slides/PhDdefense
