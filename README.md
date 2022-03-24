@@ -46,9 +46,3 @@ loaded via a namespace (and not attached):
 [11] knitr_1.36.9     xfun_0.28.10     digest_0.6.29    lifecycle_1.0.1  munsell_0.5.0   
 [16] rlang_0.4.12     evaluate_0.14
 ```
-
-If you have any question or want to report an issue/error, please feel free to reach me.
-
-<p align="center"> 
-	<img src="https://komarev.com/ghpvc/?username=bttomio&label=Profile%20views&color=0e75b6&style=plastic" alt="bttomio" /> 
-</p>
