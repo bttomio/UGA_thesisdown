@@ -13,7 +13,7 @@ With the files in this repository, you are able to:
 2. Reproduce my econometric results (Stata and R codes)
 
 * Go to the directory `ECONOMETRIC PROCEDURES`
-* For Chapter 4, use `BGVAR_2.4.3`
+* For Chapter 4, use `BGVAR_2.4.3`(https://github.com/mboeck11/BGVAR)
 
 3. Reproduce my presentation for the thesis committee
 
