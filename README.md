@@ -48,3 +48,7 @@ loaded via a namespace (and not attached):
 ```
 
 If you have any question or want to report an issue/error, please feel free to reach me.
+
+<p align="center"> 
+	<img src="https://komarev.com/ghpvc/?username=bttomio&label=Profile%20views&color=0e75b6&style=plastic" alt="bttomio" /> 
+</p>
