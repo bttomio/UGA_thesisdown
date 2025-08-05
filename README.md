@@ -1,26 +1,30 @@
-First, download the code as a `.zip` file and extract the files to a specific folder.
+The PDF document is avaliable here: https://github.com/bttomio/UGA_thesisdown/blob/main/docs/_main.pdf.
 
-With the files in this repository, you are able to:
+To reproduce the thesis manuscript and related materials, please follow the steps below:
 
-1. Reproduce my thesis manuscript
+First, download the code as a `.zip` file and extract the contents to a specific folder.
+
+With the files in this repository, you can:
+
+1. Reproduce the thesis manuscript
 
 * Open `bttomio-thesis.Rproj`
 * Open `index.Rmd`
 * Knit (Ctrl + Shitf + k) `index.Rmd`
-* It takes some time to knit the file
-* The final document is called `_main.pdf`, which is located in the `docs` folder
+* Note: It may take some time to knit the file.
+* The final document `_main.pdf`, will be located in the `docs` folder
 
-2. Reproduce my econometric results (Stata and R codes)
+2. Reproduce the econometric results (Stata and R codes)
 
-* Go to the directory `ECONOMETRIC PROCEDURES`
-* For Chapter 4, use `BGVAR_2.4.3`(https://github.com/mboeck11/BGVAR)
+* Navigate to the `ECONOMETRIC PROCEDURES` directory.
+* For Chapter 4, use `BGVAR_2.4.3`(https://github.com/mboeck11/BGVAR).
 
-3. Reproduce my presentation for the thesis committee
+3. Reproduce the thesis committee presentation
 
-* Available here: https://bttomio.github.io/slides/PhDdefense/slides.html
-* Code: https://github.com/bttomio/bttomio.github.io/tree/master/slides/PhDdefense
+* View the presentation here: https://bttomio.github.io/slides/PhDdefense/slides.html
+* Access the source code: https://github.com/bttomio/bttomio.github.io/tree/master/slides/PhDdefense
 
-Here is the `sessionInfo()` output for the manuscript:
+`sessionInfo()` output for the manuscript:
 
 ```
 R version 4.1.2 (2021-11-01)
